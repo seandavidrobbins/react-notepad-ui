@@ -1,6 +1,6 @@
 // https://tailwindcss.com/docs/installation#create-your-configuration-file
 module.exports = {
-  content: ["./src/components/**/*.{js,jsx}"],
+  content: ["./src/**/*.{js,jsx}"],
   theme: {
     extend: {
       container: {
