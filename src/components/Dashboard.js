@@ -6,7 +6,7 @@ const DashLayout = () => {
   return (
     <>
       <DashHeader />
-      <div className="flex pt-12 h-full justify-center w-full">
+      <div className="flex pt-8 h-full px-8">
         <Outlet />
       </div>
       <DashFooter />
