@@ -9,9 +9,9 @@ const Welcome = () => {
   }).format(date);
 
   const content = (
-    <section className="welcome">
+    <div className="w-full flex flex-col justify-center">
       <p className="text-white">{today}</p>
-      <h1 className="text-white">Welcome!</h1>
+      <h1 className="py-4">Welcome!</h1>
       <Link
         to="/dashboard/notes"
         className="text-white w-full inline-flex items-center"
@@ -26,7 +26,7 @@ const Welcome = () => {
         <span className="mr-4">View User Settings</span>
         <SVG src="/icons/arrow-right.svg" title="View User Settings" />
       </Link>
-    </section>
+    </div>
   );
 
   return content;

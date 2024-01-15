@@ -23,4 +23,8 @@
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
   }
+
+  h1 {
+    @apply text-5xl w-full !text-reactBlue;
+  }
 }

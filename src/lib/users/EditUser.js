@@ -11,7 +11,7 @@ const EditUser = () => {
   const content = user ? (
     <EditUserForm user={user} />
   ) : (
-    <p className="text-white text-3xl mt-12">Loading...</p>
+    <p className="text-white text-3xl pt-12 w-full text-center">Loading...</p>
   );
 
   return content;

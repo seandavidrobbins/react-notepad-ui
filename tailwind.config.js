@@ -13,7 +13,7 @@ module.exports = {
       },
       colors: {
         green: "#00B140",
-        blue: "#0B24FB",
+        reactBlue: "#24c9db",
         midnight: "#00193f",
         lightgray: "#F4F4F4",
         offwhite: "#FAFAFA",

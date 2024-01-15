@@ -1,6 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
+import logo from "../logo.png";
 
-const DashFooter = () => {
+const DashFooter = ({ userId }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -20,10 +21,12 @@ const DashFooter = () => {
   }
 
   const content = (
-    <footer className="absolute bottom-0 border-t border-white w-full p-8 bg-black">
-      {goHomeButton}
+    <footer className="absolute bottom-0 border-t border-white w-full px-8 py-2 bg-black flex items-center justify-between">
       <p className="text-white">Current User:</p>
       <p className="text-white">Status:</p>
+      {goHomeButton}
+
+      <img src={logo} alt="logo" className="w-[75px]" />
     </footer>
   );
   return content;

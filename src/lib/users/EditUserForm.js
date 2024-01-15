@@ -35,13 +35,13 @@ const EditUserForm = ({ user }) => {
 
   useEffect(() => {
     console.log(isSuccess);
-    if (isSuccess || isDelSuccess) {
+    if (isSuccess || isDelSuccess || isLoading) {
       setUsername("");
       setPassword("");
       setRoles([]);
       navigate("/dashboard/users");
     }
-  }, [isSuccess, isDelSuccess, navigate]);
+  }, [isSuccess, isDelSuccess, isLoading, navigate]);
 
   const onUsernameChanged = (e) => setUsername(e.target.value);
   const onPasswordChanged = (e) => setPassword(e.target.value);
@@ -99,86 +99,88 @@ const EditUserForm = ({ user }) => {
     <>
       <p className={errClass}>{errContent}</p>
 
-      <form
-        className="form flex flex-col pt-12"
-        onSubmit={(e) => e.preventDefault()}
-      >
-        <div className="form__title-row text-white pt-4">
-          <h2>Edit User</h2>
-          <div className="form__action-buttons space-x-3">
-            <button
-              className="icon-button"
-              title="Save"
-              onClick={onSaveUserClicked}
-              disabled={!canSave}
-            >
-              <SVG src="/icons/save.svg" title="save changes" />
-            </button>
-            <button
-              className="icon-button"
-              title="Delete"
-              onClick={onDeleteUserClicked}
-            >
-              <SVG src="/icons/trashcan.svg" title="trash" />
-            </button>
+      <div className="w-full justify-center flex">
+        <form
+          className="form flex flex-col w-full lg:w-1/2"
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <div className="form__title-row text-white pt-4">
+            <h2>Edit User</h2>
+            <div className="form__action-buttons space-x-2">
+              <button
+                className="icon-button"
+                title="Save"
+                onClick={onSaveUserClicked}
+                disabled={!canSave}
+              >
+                <SVG src="/icons/save.svg" title="save changes" />
+              </button>
+              <button
+                className="icon-button"
+                title="Delete"
+                onClick={onDeleteUserClicked}
+              >
+                <SVG src="/icons/trashcan.svg" title="trash" />
+              </button>
+            </div>
           </div>
-        </div>
-        <label className="form__label text-white pt-4" htmlFor="username">
-          Username: <span className="nowrap">[3-20 letters]</span>
-        </label>
-        <input
-          className={`form__input ${validUserClass}`}
-          id="username"
-          name="username"
-          type="text"
-          autoComplete="off"
-          value={username}
-          onChange={onUsernameChanged}
-        />
-
-        <label className="form__label text-white pt-4" htmlFor="password">
-          Password: <span className="nowrap">[empty = no change]</span>{" "}
-          <span className="nowrap">[4-12 chars incl. !@#$%]</span>
-        </label>
-        <input
-          className={`form__input ${validPwdClass}`}
-          id="password"
-          name="password"
-          type="password"
-          value={password}
-          onChange={onPasswordChanged}
-        />
-
-        <label
-          className="form__label form__checkbox-container text-white pt-4"
-          htmlFor="user-active"
-        >
-          ACTIVE:
+          <label className="form__label text-white pt-4" htmlFor="username">
+            Username: <span className="nowrap">[3-20 letters]</span>
+          </label>
           <input
-            className="form__checkbox pb-4"
-            id="user-active"
-            name="user-active"
-            type="checkbox"
-            checked={active}
-            onChange={onActiveChanged}
+            className={`form__input ${validUserClass}`}
+            id="username"
+            name="username"
+            type="text"
+            autoComplete="off"
+            value={username}
+            onChange={onUsernameChanged}
           />
-        </label>
 
-        <label className="form__label text-white" htmlFor="roles">
-          ASSIGNED ROLES:
-        </label>
-        <select
-          id="roles"
-          name="roles"
-          className={`form__select ${validRolesClass}`}
-          multiple={true}
-          size="3"
-          value={roles}
-          onChange={onRolesChanged}
-        >
-          {options}
-        </select>
-      </form>
+          <label className="form__label text-white pt-4" htmlFor="password">
+            Password: <span className="nowrap">[empty = no change]</span>{" "}
+            <span className="nowrap">[4-12 chars incl. !@#$%]</span>
+          </label>
+          <input
+            className={`form__input ${validPwdClass}`}
+            id="password"
+            name="password"
+            type="password"
+            value={password}
+            onChange={onPasswordChanged}
+          />
+
+          <label
+            className="form__label form__checkbox-container text-white pt-4"
+            htmlFor="user-active"
+          >
+            ACTIVE:
+            <input
+              className="form__checkbox pb-4"
+              id="user-active"
+              name="user-active"
+              type="checkbox"
+              checked={active}
+              onChange={onActiveChanged}
+            />
+          </label>
+
+          <label className="form__label text-white" htmlFor="roles">
+            ASSIGNED ROLES:
+          </label>
+          <select
+            id="roles"
+            name="roles"
+            className={`form__select ${validRolesClass}`}
+            multiple={true}
+            size="3"
+            value={roles}
+            onChange={onRolesChanged}
+          >
+            {options}
+          </select>
+        </form>
+      </div>
     </>
   );
 
