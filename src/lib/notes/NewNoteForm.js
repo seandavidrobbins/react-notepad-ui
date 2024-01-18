@@ -18,7 +18,7 @@ const NewNoteForm = ({ users }) => {
       setTitle("");
       setText("");
       setUserId("");
-      navigate("/dash/notes");
+      navigate("/dashboard/notes");
     }
   }, [isSuccess, navigate]);
 
@@ -51,56 +51,54 @@ const NewNoteForm = ({ users }) => {
   const content = (
     <>
       <p className={errClass}>{error?.data?.message}</p>
-
-      <form className="form" onSubmit={onSaveNoteClicked}>
-        <div className="form__title-row">
-          <h2>New Note</h2>
-          <div className="form__action-buttons">
-            <button className="icon-button" title="Save" disabled={!canSave}>
-              <SVG src="/icons/save.svg" title="save changes" />
-            </button>
+      <div className="w-full flex justify-center mt-12">
+        <form className="flex flex-col w-1/2" onSubmit={onSaveNoteClicked}>
+          <div className=" inline-flex w-full justify-between">
+            <h2 className="text-white">New Note</h2>
+            <div className="text-white">
+              <button className="icon-button" title="Save" disabled={!canSave}>
+                <SVG src="/icons/save.svg" title="save changes" />
+              </button>
+            </div>
           </div>
-        </div>
-        <label className="form__label" htmlFor="title">
-          Title:
-        </label>
-        <input
-          className={`form__input ${validTitleClass}`}
-          id="title"
-          name="title"
-          type="text"
-          autoComplete="off"
-          value={title}
-          onChange={onTitleChanged}
-        />
+          <label className="text-white" htmlFor="title">
+            Title:
+          </label>
+          <input
+            className={`${validTitleClass}`}
+            id="title"
+            name="title"
+            type="text"
+            autoComplete="off"
+            value={title}
+            onChange={onTitleChanged}
+          />
 
-        <label className="form__label" htmlFor="text">
-          Text:
-        </label>
-        <textarea
-          className={`form__input form__input--text ${validTextClass}`}
-          id="text"
-          name="text"
-          value={text}
-          onChange={onTextChanged}
-        />
+          <label className="text-white" htmlFor="text">
+            Text:
+          </label>
+          <textarea
+            className={`${validTextClass}`}
+            id="text"
+            name="text"
+            value={text}
+            onChange={onTextChanged}
+          />
 
-        <label
-          className="form__label form__checkbox-container"
-          htmlFor="username"
-        >
-          ASSIGNED TO:
-        </label>
-        <select
-          id="username"
-          name="username"
-          className="form__select"
-          value={userId}
-          onChange={onUserIdChanged}
-        >
-          {options}
-        </select>
-      </form>
+          <label className="text-white" htmlFor="username">
+            ASSIGNED TO:
+          </label>
+          <select
+            id="username"
+            name="username"
+            className="form__select"
+            value={userId}
+            onChange={onUserIdChanged}
+          >
+            {options}
+          </select>
+        </form>
+      </div>
     </>
   );
 

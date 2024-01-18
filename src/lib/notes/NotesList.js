@@ -19,11 +19,7 @@ const NotesList = () => {
   if (isLoading) content = <p>Loading...</p>;
 
   if (isError) {
-    content = (
-      <p className="errmsg text-white h-full justify-center">
-        {error?.data?.message}
-      </p>
-    );
+    content = <p className="errmsg">{error?.data?.message}</p>;
   }
 
   if (isSuccess) {
@@ -34,22 +30,37 @@ const NotesList = () => {
       : null;
 
     content = (
-      <table className="table table--notes">
-        <thead className="table__thead">
+      <table className="table table--notes border-2 border-white w-full bg-black">
+        <thead className="table__thead text-white border-2 border-white h-[3rem]">
           <tr>
-            <th scope="col" className="table__th note__status">
-              Username
+            <th
+              scope="col"
+              className="table__th note__status border-2 border-white"
+            >
+              Ticket Status
             </th>
-            <th scope="col" className="table__th note__created">
+            <th
+              scope="col"
+              className="table__th note__created border-2 border-white"
+            >
               Created
             </th>
-            <th scope="col" className="table__th note__updated">
+            <th
+              scope="col"
+              className="table__th note__updated border-2 border-white"
+            >
               Updated
             </th>
-            <th scope="col" className="table__th note__title">
+            <th
+              scope="col"
+              className="table__th note__title border-2 border-white"
+            >
               Title
             </th>
-            <th scope="col" className="table__th note__username">
+            <th
+              scope="col"
+              className="table__th note__username border-2 border-white"
+            >
               Owner
             </th>
             <th scope="col" className="table__th note__edit">

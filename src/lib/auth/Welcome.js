@@ -26,6 +26,20 @@ const Welcome = () => {
         <span className="mr-4">View User Settings</span>
         <SVG src="/icons/arrow-right.svg" title="View User Settings" />
       </Link>
+      <Link
+        to="/dashboard/users/new"
+        className="text-white w-full inline-flex items-center"
+      >
+        <span className="mr-4">Add New User</span>
+        <SVG src="/icons/arrow-right.svg" title="Add New User" />
+      </Link>
+      <Link
+        to="/dashboard/notes/new"
+        className="text-white w-full inline-flex items-center"
+      >
+        <span className="mr-4">Add New Note</span>
+        <SVG src="/icons/arrow-right.svg" title="Add New Note" />
+      </Link>
     </div>
   );
 

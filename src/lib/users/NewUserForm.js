@@ -82,7 +82,7 @@ const NewUserForm = () => {
           className="form flex flex-col w-full lg:w-1/2"
           onSubmit={onSaveUserClicked}
         >
-          <div className="form__title-row text-white py-4">
+          <div className="inline-flex w-full justify-between text-white py-4">
             <h2>New User</h2>
             <div className="form__action-buttons">
               <button className="icon-button" title="Save" disabled={!canSave}>
