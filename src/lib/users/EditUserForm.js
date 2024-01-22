@@ -104,7 +104,7 @@ const EditUserForm = ({ user }) => {
           className="form flex flex-col w-full lg:w-1/2"
           onSubmit={(e) => e.preventDefault()}
         >
-          <div className="form__title-row text-white pt-4">
+          <div className="text-white inline-flex justify-between w-full">
             <h2>Edit User</h2>
             <div className="form__action-buttons space-x-2">
               <button
