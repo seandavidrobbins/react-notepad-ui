@@ -1,9 +1,11 @@
 import { useRef, useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import PublicHeader from "../../../src/components/PublicHeader";
+import { useNavigate } from "react-router-dom";
+import PublicHeader from "../../components/PublicHeader";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "./authSlice";
 import { useLoginMutation } from "./authApiSlice";
+import usePersist from "../../hooks/usePersist";
+import PublicFooter from "../../components/PublicFooter";
 
 const Login = () => {
   const userRef = useRef();
@@ -11,6 +13,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
+  const [persist, setPersist] = usePersist();
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -49,6 +52,7 @@ const Login = () => {
 
   const handleUserInput = (e) => setUsername(e.target.value);
   const handlePwdInput = (e) => setPassword(e.target.value);
+  const handleToggle = () => setPersist((prev) => !prev);
 
   const errClass = errMsg ? "errmsg" : "offscreen";
 
@@ -89,11 +93,19 @@ const Login = () => {
             required
           />
           <button className="form__submit-button">Sign In</button>
+          <label htmlFor="persist" className="text-white items-center flex">
+            <input
+              type="checkbox"
+              className="mr-2"
+              id="persist"
+              onChange={handleToggle}
+              checked={persist}
+            />
+            Trust This Device
+          </label>
         </form>
       </main>
-      <footer>
-        <Link to="/">Back to Home</Link>
-      </footer>
+      <PublicFooter />
     </section>
   );
 
