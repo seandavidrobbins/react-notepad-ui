@@ -33,11 +33,11 @@ const DashHeader = () => {
   }
 
   const logoutButton = (
-    <button className="icon-button" title="Logout" onClick={sendLogout}>
+    <button title="Logout" onClick={sendLogout}>
       <SVG
-        src="/icons/arrow-right.svg"
+        src="/icons/right-from-bracket.svg"
         title="logout"
-        className="fill-white hover:fill-reactBlue ml-2"
+        className="fill-white ml-4 hover:fill-reactBlue w-[24px]"
       />
     </button>
   );

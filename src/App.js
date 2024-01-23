@@ -11,6 +11,7 @@ import NewUserForm from "./lib/users/NewUserForm";
 import EditNote from "./lib/notes/EditNote";
 import NewNote from "./lib/notes/NewNote";
 import Prefetch from "./lib/auth/Prefetch";
+import PersistLogin from "./lib/auth/PersistLogin";
 
 function App() {
   return (
@@ -20,22 +21,24 @@ function App() {
         <Route path="login" element={<Login />} />
 
         <Route element={<Prefetch />}>
-          <Route path="dashboard" element={<Dashboard />}>
-            <Route index element={<Welcome />} />
+          <Route element={<PersistLogin />}>
+            <Route path="dashboard" element={<Dashboard />}>
+              <Route index element={<Welcome />} />
 
-            <Route path="users">
-              <Route index element={<UsersList />} />
-              <Route path=":id" element={<EditUser />} />
-              <Route path="new" element={<NewUserForm />} />
-            </Route>
+              <Route path="users">
+                <Route index element={<UsersList />} />
+                <Route path=":id" element={<EditUser />} />
+                <Route path="new" element={<NewUserForm />} />
+              </Route>
 
-            <Route path="notes">
-              <Route index element={<NotesList />} />
-              <Route path=":id" element={<EditNote />} />
-              <Route path="new" element={<NewNote />} />
+              <Route path="notes">
+                <Route index element={<NotesList />} />
+                <Route path=":id" element={<EditNote />} />
+                <Route path="new" element={<NewNote />} />
+              </Route>
             </Route>
+            {/* End Dash */}
           </Route>
-          {/* End Dash */}
         </Route>
       </Route>
     </Routes>
